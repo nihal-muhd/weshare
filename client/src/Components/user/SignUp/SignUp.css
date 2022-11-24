@@ -1,0 +1,13 @@
+.head{
+    font-family: 'Grand Hotel', cursive;
+    font-size: 4rem;
+}
+.btn{
+    border-radius: 7px;
+}
+.main{
+   
+    padding: 2rem;
+    background-color: rgb(221, 225, 255);
+    border-radius: 9px;
+}
