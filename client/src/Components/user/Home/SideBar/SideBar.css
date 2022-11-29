@@ -1,0 +1,14 @@
+.sidebar-main{
+    position: sticky;
+    height: 20rem;
+    background-color: rgba(205, 204, 204, 0.832);
+    margin-right: 1rem;
+}
+.sidebar-options{
+    padding: 8px;
+    font-weight: 500;
+}
+.sidebar-text{
+    padding-left: 5px;
+    cursor: pointer;
+}

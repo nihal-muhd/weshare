@@ -1,0 +1,25 @@
+.mobileSideBar-main{
+    gap: 3rem;
+    display: none;
+}
+@media only screen and (max-width:325px) {
+    .mobileSideBar-main{
+        /* gap: 1rem; */
+        display: flex;
+    }
+
+}
+@media only screen and (max-width:376px) {
+    .mobileSideBar-main{
+        gap: 3.5rem;
+        display: flex;
+    }
+
+}
+@media only screen and (max-width:426px) {
+    .mobileSideBar-main{
+        gap: 4.3rem;
+        display: flex;
+    }
+
+}

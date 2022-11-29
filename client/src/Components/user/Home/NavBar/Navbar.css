@@ -1,0 +1,60 @@
+.navmain{
+    width: 100%;
+    background-color: rgba(205, 204, 204, 0.832);
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.navlogo{
+    width: 50%;
+    font-family: 'Grand Hotel', cursive;
+    font-size: 2rem;
+    margin-left: 3rem;
+}
+.icons{
+    display: flex;
+    gap: 2rem;
+    margin-right: 3rem;
+    padding: 5px;
+    
+}
+.nav-search{
+    cursor: pointer;
+}
+.nav-notification{
+    cursor: pointer;
+}
+.nav-profile{
+    cursor: pointer;
+}
+
+@media only screen and (max-width:350px){
+    .icons{
+        display: flex;
+        gap: 1rem;
+        margin-right: 2rem;
+        padding: 5px;
+        
+    }
+    .navlogo{
+        width: 50%;
+        font-family: 'Grand Hotel', cursive;
+        font-size: 2rem;
+        margin-left: 2rem;
+    }
+}
+@media only screen and (max-width:424px){
+    .icons{
+        display: flex;
+        gap: 1rem;
+        margin-right: 2rem;
+        padding: 5px;
+        
+    }
+    .navlogo{
+        width: 50%;
+        font-family: 'Grand Hotel', cursive;
+        font-size: 2rem;
+        margin-left: 2rem;
+    }
+}
