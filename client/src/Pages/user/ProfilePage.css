@@ -1,0 +1,16 @@
+.profile-main{
+    display: grid;
+    grid-template-columns: 17rem auto 17rem ;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+
+}
+.profile-post{
+    background-color: gray;
+        margin-right: 1rem;
+        background-color: rgb(255, 0, 0);
+        height: 100vh;
+        overflow-x: hidden;
+    
+}

@@ -8,6 +8,10 @@ function Navbar() {
   const navigate=useNavigate()
   const [cookies, setCookies] = useCookies([])
 
+  const profile=()=>{
+    navigate('/profile')
+  }
+
   useEffect(()=>{
     if(!cookies.jwt){
        
@@ -27,7 +31,7 @@ function Navbar() {
           <div className='nav-notification'>
             <BsBellFill/>
           </div>
-          <div className='nav-profile'>
+          <div className='nav-profile' onClick={profile}>
 
         <BsFillPersonFill/>
           </div>
