@@ -23,3 +23,10 @@
     }
 
 }
+@media only screen and (max-width:765px) {
+    .mobileSideBar-main{
+        gap: 5rem;
+        display: flex;
+    }
+
+}

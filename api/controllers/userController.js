@@ -9,6 +9,7 @@ module.exports.signup = async (req, res, next) => {
         const userData = req.body
         const salt = await bcrypt.genSalt(10);
         userData.password = await bcrypt.hash(userData.password, salt);
+        userData.Active = true
         await UserModel.create(userData)
         res.status(201).json({
             status: 'signup completed'
@@ -28,23 +29,28 @@ module.exports.login = async (req, res, next) => {
         const maxAge = 60 * 60 * 24;
         const { email, password } = req.body;
         const user = await UserModel.findOne({ email: email })
-        console.log(user,"data")
+        console.log(user, "data")
 
         if (user) {
-            const passwordCheck = await bcrypt.compare(password, user.password)
-            if (passwordCheck) {
-                const token = jwt.sign({ userId: user._id }, process.env.TOKEN_KEY, { expiresIn: maxAge })
-                res.cookie("jwt", token, {
-                    withCrdentials: true,
-                    httpOnly: false,
-                    maxAge: maxAge * 1000
-                })
-                res.status(201).json({Id: user._id, name: user.name,email:user.email,mobile:user.mobile})
-            } else {
-                res.status(401).json({status:'inavalid password'})
+            if (user.Active) {
+                const passwordCheck = await bcrypt.compare(password, user.password)
+                if (passwordCheck) {
+                    const token = jwt.sign({ userId: user._id }, process.env.TOKEN_KEY, { expiresIn: maxAge })
+                    res.cookie("jwt", token, {
+                        withCrdentials: true,
+                        httpOnly: false,
+                        maxAge: maxAge * 1000
+                    })
+                    res.status(201).json({ Id: user._id, name: user.name, email: user.email, mobile: user.mobile })
+                } else {
+                    res.status(401).json({ status: 'inavalid password' })
+                }
+            }else{
+                res.status(401).json({ status: 'user have been blocked' })
             }
+
         } else {
-            res.status(401).json({status:'inavalid email'})
+            res.status(401).json({ status: 'inavalid email' })
         }
     } catch (error) {
         console.log(error)

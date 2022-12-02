@@ -1,5 +1,5 @@
 import React from 'react'
-import {BsHouseFill,BsChatLeftDotsFill,BsGearFill,BsPeopleFill,BsBoxArrowRight} from "react-icons/bs"
+import { BsHouseFill, BsChatLeftDotsFill, BsGearFill, BsPeopleFill, BsBoxArrowRight } from "react-icons/bs"
 import { useCookies } from 'react-cookie';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
@@ -9,8 +9,13 @@ import './SideBar.css'
 function SideBar() {
   const navigate = useNavigate()
   const [cookie, setCookie, removeCookie] = useCookies([])
-  const dispatch=useDispatch()
-  const Logout=()=>{
+  const dispatch = useDispatch()
+
+  const home=()=>{
+    navigate('/')
+  }
+
+  const Logout = () => {
     removeCookie('jwt')
     dispatch(logout())
     navigate('/login')
@@ -18,19 +23,19 @@ function SideBar() {
   return (
     <div className='sidebar-main rounded'>
       <div className="sidebar-options">
-      <div className='sidebar-text'>    <BsHouseFill/> Home</div>
+        <div className='sidebar-text' onClick={home}>    <BsHouseFill /> Home</div>
       </div>
       <div className="sidebar-options">
-      <div className='sidebar-text'>  <BsPeopleFill/>  Friends</div>
+        <div className='sidebar-text'>  <BsPeopleFill />  Friends</div>
       </div>
       <div className="sidebar-options">
-      <div className='sidebar-text'> <BsChatLeftDotsFill/>  Message</div>
+        <div className='sidebar-text'> <BsChatLeftDotsFill />  Message</div>
       </div>
       <div className="sidebar-options">
-      <div className='sidebar-text'>   <BsGearFill/>  Settings</div>
+        <div className='sidebar-text'>   <BsGearFill />  Settings</div>
       </div>
       <div className="sidebar-options">
-      <div className='sidebar-text' onClick={Logout}>  <BsBoxArrowRight/>  Logout</div>
+        <div className='sidebar-text' onClick={Logout}>  <BsBoxArrowRight />  Logout</div>
       </div>
     </div>
   )

@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, 'Please provide password']
+    },
+    Active: {
+        type: Boolean,
+        default: true
     }
 },
     {
